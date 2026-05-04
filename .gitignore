@@ -1,0 +1,10 @@
+# Build directory
+/build/
+
+# Compiled binaries
+*.o
+*.elf
+
+# Generated ROMs
+*.sfc
+*.smc
