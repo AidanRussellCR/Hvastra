@@ -5,3 +5,4 @@ CGDATA  = $2122
 
 ; CPU registers
 NMITIMEN = $4200
+RDNMI    = $4210
