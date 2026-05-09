@@ -16,7 +16,8 @@
 .segment "CODE"
 
 PPU_Init:
-    lda #$8F        ; force blank with full brightness
+    ; force blank with full brightness
+    lda #$8F
     sta INIDISP
 
     ; VRAM increment after writing high byte
