@@ -31,3 +31,11 @@ TestTiles:
 .repeat 16
     .byte $00
 .endrepeat
+
+; Tile 4: player marker
+.repeat 8
+    .byte $FF, $FF
+.endrepeat
+.repeat 16
+    .byte $00
+.endrepeat

@@ -50,8 +50,11 @@ PPU_LoadPalette:
     lda TestPalette, x
     sta CGDATA
     inx
+    lda TestPalette, x
+    sta CGDATA
     inx
-    cpx #8
+
+    cpx #32
     bne @loop
 
     rts
@@ -69,7 +72,7 @@ PPU_LoadTiles:
     sta VMDATAH
     inx
 
-    cpx #(32*4)
+    cpx #(32*5)
     bne @loop
 
     rts

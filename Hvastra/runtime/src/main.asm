@@ -10,6 +10,10 @@
 .import PPU_LoadTilemap
 .import Interrupts_EnableNMI
 .import WaitForVBlank
+.import Input_Update
+.import Player_Init
+.import Player_Update
+.import Player_Draw
 
 .export Reset
 
@@ -29,6 +33,9 @@ Reset:
     jsr PPU_LoadTiles
     jsr PPU_LoadTilemap
 
+    jsr Player_Init
+    jsr Player_Draw
+
     jsr Interrupts_EnableNMI
 
     lda #$0F
@@ -36,4 +43,6 @@ Reset:
 
 MainLoop:
     jsr WaitForVBlank
+    jsr Input_Update
+    jsr Player_Update
     bra MainLoop

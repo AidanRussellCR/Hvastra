@@ -22,3 +22,8 @@ VMDATAH = $2119
 
 ; DMA
 MDMAEN  = $420B
+
+; Input
+HVBJOY = $4212
+JOY1L  = $4218
+JOY1H  = $4219

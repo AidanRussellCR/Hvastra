@@ -22,8 +22,8 @@ blue_phase:
 Interrupts_EnableNMI:
     stz vblank_ready
 
-    ; Enable NMI only
-    lda #$80
+    ; Enable NMI and joypad
+    lda #$81
     sta NMITIMEN
 
     cli

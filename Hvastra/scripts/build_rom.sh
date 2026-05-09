@@ -17,6 +17,10 @@ ca65 ../runtime/data/tilemap.asm -o build/tilemap.o
 ca65 ../runtime/src/header.asm -o build/header.o
 ca65 ../runtime/src/vectors.asm -o build/vectors.o
 
+# Player
+ca65 ../runtime/src/core/input.asm -o build/input.o
+ca65 ../runtime/src/map/player.asm -o build/player.o
+
 ld65 \
     -C ../runtime/cfg/lorom.cfg \
     -o build/hvastra.sfc \
@@ -27,6 +31,8 @@ ld65 \
     build/tiles.o \
     build/tilemap.o \
     build/header.o \
-    build/vectors.o
+    build/vectors.o \
+    build/input.o \
+    build/player.o
 
 echo "Built: build/hvastra.sfc"
