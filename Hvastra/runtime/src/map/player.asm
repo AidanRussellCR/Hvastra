@@ -5,6 +5,9 @@
 .include "../../inc/snes.inc"
 
 .import input_held
+.import Collision_IsWalkable
+.import collision_x
+.import collision_y
 
 .export Player_Init
 .export Player_Update
@@ -71,6 +74,17 @@ Player_Update:
 
     lda player_y
     beq @check_down
+
+    lda player_x
+    sta collision_x
+
+    lda player_y
+    dec
+    sta collision_y
+
+    jsr Collision_IsWalkable
+    beq @check_down
+
     dec player_y
 
 @check_down:
@@ -81,6 +95,17 @@ Player_Update:
     lda player_y
     cmp #$1F
     beq @check_left
+
+    lda player_x
+    sta collision_x
+
+    lda player_y
+    inc
+    sta collision_y
+
+    jsr Collision_IsWalkable
+    beq @check_left
+
     inc player_y
 
 @check_left:
@@ -90,6 +115,17 @@ Player_Update:
 
     lda player_x
     beq @check_right
+
+    lda player_x
+    dec
+    sta collision_x
+
+    lda player_y
+    sta collision_y
+
+    jsr Collision_IsWalkable
+    beq @check_right
+
     dec player_x
 
 @check_right:
@@ -100,6 +136,17 @@ Player_Update:
     lda player_x
     cmp #$1F
     beq @done_movement
+
+    lda player_x
+    inc
+    sta collision_x
+
+    lda player_y
+    sta collision_y
+
+    jsr Collision_IsWalkable
+    beq @done_movement
+
     inc player_x
 
 @done_movement:
